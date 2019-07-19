@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import {
   getUserName, startGame, getRandomNum, getPairQA,
-} from '..';
+} from '../..';
 
 const calcGame = () => {
   const a = getRandomNum();
