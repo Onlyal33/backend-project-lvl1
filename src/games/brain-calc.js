@@ -1,12 +1,12 @@
-#!/usr/bin/env node
-import {
-  getUserName, startGame, getRandomNum, getPairQA,
-} from '../..';
+import { cons } from '@hexlet/pairs';
+import { getRandomNum } from '..';
 
-const calcGame = () => {
+export const gameGoal = 'What is the result of the expression?';
+export const getQuestionAnswerForGame = () => {
   const a = getRandomNum();
   const b = getRandomNum();
-  const numberOfOperator = getRandomNum(1, 3);
+  const quantityOfOperations = 3;
+  const numberOfOperator = getRandomNum(1, quantityOfOperations);
   let answer = 0;
   let operator = '';
   switch (numberOfOperator) {
@@ -23,8 +23,5 @@ const calcGame = () => {
       operator = '*';
   }
   const question = `${a} ${operator} ${b}`;
-  return getPairQA(question, String(answer));
+  return cons(question, String(answer));
 };
-console.log('Welcome to the Brain Games!');
-console.log('What is the result of the expression?\n');
-startGame(getUserName(), calcGame);
