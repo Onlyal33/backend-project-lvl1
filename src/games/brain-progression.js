@@ -1,15 +1,18 @@
 import { cons } from '@hexlet/pairs';
-import { getRandomNum } from '..';
+import { getRandomNum, playGame } from '..';
 
-export const gameGoal = 'What number is missing in the progression?';
-export const getQuestionAnswerForGame = () => {
+const progressionLength = 10;
+
+const gameGoal = 'What number is missing in the progression?';
+
+const getQuestionAnswerForGame = () => {
   let a = getRandomNum();
   const commDiff = getRandomNum();
-  const hiddenPos = getRandomNum(1, 10);
+  const hiddenPosition = getRandomNum(1, progressionLength);
   let question = '';
   let answer = 0;
-  for (let i = 1; i <= 10; i += 1) {
-    if (i !== hiddenPos) {
+  for (let i = 1; i <= progressionLength; i += 1) {
+    if (i !== hiddenPosition) {
       question += `${a} `;
     } else {
       question += '.. ';
@@ -19,3 +22,5 @@ export const getQuestionAnswerForGame = () => {
   }
   return cons(question, String(answer));
 };
+
+export default () => playGame(getQuestionAnswerForGame, gameGoal);

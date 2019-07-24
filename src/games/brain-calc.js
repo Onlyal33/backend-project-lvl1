@@ -1,27 +1,30 @@
 import { cons } from '@hexlet/pairs';
-import { getRandomNum } from '..';
+import { l, random } from '@hexlet/pairs-data';
+import { getRandomNum, playGame } from '..';
 
-export const gameGoal = 'What is the result of the expression?';
-export const getQuestionAnswerForGame = () => {
+// список операторов и выбор из списка реализовал с помощью @hexlet/pairs-data
+const listOfOperators = l('+', '-', '*');
+
+const getResultOfOperation = (a, b, operator) => {
+  switch (operator) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    default:
+      return a * b;
+  }
+};
+
+const gameGoal = 'What is the result of the expression?';
+
+const getQuestionAnswerForGame = () => {
   const a = getRandomNum();
   const b = getRandomNum();
-  const quantityOfOperations = 3;
-  const numberOfOperator = getRandomNum(1, quantityOfOperations);
-  let answer = 0;
-  let operator = '';
-  switch (numberOfOperator) {
-    case 1:
-      answer = a + b;
-      operator = '+';
-      break;
-    case 2:
-      answer = a - b;
-      operator = '-';
-      break;
-    default:
-      answer = a * b;
-      operator = '*';
-  }
+  const operator = random(listOfOperators);
   const question = `${a} ${operator} ${b}`;
+  const answer = getResultOfOperation(a, b, operator);
   return cons(question, String(answer));
 };
+
+export default () => playGame(getQuestionAnswerForGame, gameGoal);
