@@ -9,14 +9,14 @@ const getGreatestCommonDivisor = (a, b) => {
     number1 = b;
     number2 = a;
   }
-  const iterEuсlid = (greaterNumber, lowerNumber) => {
+  const iter = (greaterNumber, lowerNumber) => {
     const modulo = greaterNumber % lowerNumber;
     if (modulo === 0) {
       return lowerNumber;
     }
-    return iterEuсlid(lowerNumber, modulo);
+    return iter(lowerNumber, modulo);
   };
-  return iterEuсlid(number1, number2);
+  return iter(number1, number2);
 };
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';

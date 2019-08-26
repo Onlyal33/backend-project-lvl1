@@ -7,21 +7,20 @@ const progressionLength = 10;
 const gameDescription = 'What number is missing in the progression?';
 
 const getQuestionAnswer = () => {
-  let currentElement = getRandomNum();
+  const firstElement = getRandomNum();
   const commonDifference = getRandomNum();
-  const hiddenElementPosition = getRandomNum(1, progressionLength);
+  const hiddenElementPosition = getRandomNum(0, progressionLength - 1);
+  const answer = firstElement + hiddenElementPosition * commonDifference;
   let question = '';
-  let answer = 0;
-  for (let i = 1; i <= progressionLength; i += 1) {
+  for (let i = 0; i < progressionLength; i += 1) {
     if (i !== hiddenElementPosition) {
+      const currentElement = firstElement + i * commonDifference;
       question = `${question} ${currentElement}`;
     } else {
       question = `${question} ..`;
-      answer = currentElement;
     }
-    currentElement += commonDifference;
   }
-  return cons(question, String(answer));
+  return cons(question.slice(1), String(answer));
 };
 
 export default () => playGame(getQuestionAnswer, gameDescription);
