@@ -20,7 +20,7 @@ const getQuestionAnswer = () => {
       question = `${question} ..`;
     }
   }
-  return cons(question.slice(1), String(answer));
+  return cons(question.trim(), String(answer));
 };
 
 export default () => playGame(getQuestionAnswer, gameDescription);

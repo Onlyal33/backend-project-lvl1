@@ -3,7 +3,6 @@ import { l, random } from '@hexlet/pairs-data';
 import getRandomNum from '../utils';
 import playGame from '..';
 
-// список операторов и выбор из списка реализовал с помощью @hexlet/pairs-data
 const operators = l('+', '-', '*');
 
 const calculate = (number1, number2, operator) => {

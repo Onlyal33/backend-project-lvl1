@@ -9,12 +9,12 @@ const getGreatestCommonDivisor = (a, b) => {
     number1 = b;
     number2 = a;
   }
-  const iter = (greaterNumber, lowerNumber) => {
-    const modulo = greaterNumber % lowerNumber;
+  const iter = (dividend, divisor) => {
+    const modulo = dividend % divisor;
     if (modulo === 0) {
-      return lowerNumber;
+      return divisor;
     }
-    return iter(lowerNumber, modulo);
+    return iter(divisor, modulo);
   };
   return iter(number1, number2);
 };
