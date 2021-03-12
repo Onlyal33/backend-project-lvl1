@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/Onlyal33/backend-project-lvl1#readme",
   "devDependencies": {
-    "@babel/cli": "^7.5.0",
+    "@babel/cli": "^7.13.10",
     "@babel/core": "^7.5.4",
     "@babel/node": "^7.5.0",
     "@babel/preset-env": "^7.5.4",
